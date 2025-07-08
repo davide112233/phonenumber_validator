@@ -15,7 +15,7 @@ const FormValidator = () => {
         const clearFormBtn = document.getElementById('clearform-btn');
         const resultsOutput = document.getElementById('results-output');
 
-        phoneNumberFormContainer.classList.add("container", "p-3", "d-flex", "justify-content-lg-start", "justify-content-center");
+        phoneNumberFormContainer.classList.add("container-fluid", "p-3", "d-flex", "justify-content-lg-start", "justify-content-center", "mt-3", "px-lg-5");
         phoneNumberValidatorForm.classList.add("d-flex", "flex-lg-row", "flex-column", "gap-3");
         phonenumberInput.classList.add("form-control");
         checkNumberBtn.classList.add("btn", "btn-success");
@@ -45,8 +45,10 @@ const FormValidator = () => {
             } else if (numberChecker(inputText) && inputText.length === 10) {
                 resultsOutput.innerText = DOMPurify.sanitize(`Il numero di telefono ${inputText} è valido`);
                 inputText = DOMPurify.sanitize("");
+                clearFormBtn.disabled = false;
             } else {
                 resultsOutput.innerText = DOMPurify.sanitize(`Il numero di telefono ${inputText} non è valido`);
+                clearFormBtn.disabled = false;
             }
         });
 
@@ -56,6 +58,7 @@ const FormValidator = () => {
             } else {
                 phonenumberInput.value = DOMPurify.sanitize("");
                 resultsOutput.textContent = DOMPurify.sanitize("");
+                clearFormBtn.disabled = true;
             }
         });
 
@@ -73,7 +76,7 @@ const FormValidator = () => {
                     <input id="phonenumber-input" />
                     <div id="buttons-box">
                         <button id="checknumber-btn" />
-                        <button id="clearform-btn" />
+                        <button id="clearform-btn" disabled />
                     </div>
                 </form>
             </div>

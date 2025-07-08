@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 :root {
     --paper: whitesmoke;
     --accent: black;
@@ -13,7 +15,7 @@ html {
 
 body {
     background-color: var(--paper);
-    font-family: 'Arial Narrow Bold', sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 #phonenumber-validator-form {
@@ -40,6 +42,10 @@ body {
 }
 
 @media screen and (orientation: portrait) {
+    #navbar-brand, #circleinfo-icon {
+        font-size: large !important;
+    }
+
     input[type="text"] {
         width: 100%;
     }

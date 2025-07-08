@@ -52,7 +52,7 @@ const FormValidator = () => {
 
         clearFormBtn.addEventListener('click', () => {
             if(phonenumberInput.value === "") {
-                alert("There's nothing to clear since everything is empty");
+                alert("Non c'è niente da resettare, visto che il programma sembra vuoto");
             } else {
                 phonenumberInput.value = "";
                 resultsOutput.textContent = "";

@@ -42,7 +42,7 @@ const FormValidator = () => {
 
             if(inputText === DOMPurify.sanitize("")) {
                 resultsOutput.innerText = DOMPurify.sanitize("Devi inserire un numero di telefono");
-            } else if (numberChecker(inputText) && inputText.length === 10) {
+            } else if (numberChecker(inputText) && inputText.length >= 10) {
                 resultsOutput.innerText = DOMPurify.sanitize(`Il numero di telefono ${inputText} è valido`);
                 inputText = DOMPurify.sanitize("");
                 clearFormBtn.disabled = false;
@@ -64,7 +64,7 @@ const FormValidator = () => {
 
         const resultBox = document.querySelector('.result-box');
 
-        resultBox.classList.add("container-fluid", "px-lg-4", "p-0");
+        resultBox.classList.add("container-fluid", "px-lg-4", "p-3");
 
         resultsOutput.classList.add("lead", "text-lg-start", "text-center");
     }, []);

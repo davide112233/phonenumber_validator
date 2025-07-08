@@ -40,30 +40,30 @@ const FormValidator = () => {
         checkNumberBtn.addEventListener('click', () => {
             let inputText = DOMPurify.sanitize(phonenumberInput.value.trim());
 
-            if(inputText === "") {
-                resultsOutput.innerText = "Please provide a phone number";
-            } else if (numberChecker(inputText)) {
-                resultsOutput.innerText = `${inputText} is a valid IT phone number`;
-                inputText = "";
+            if(inputText === DOMPurify.sanitize("")) {
+                resultsOutput.innerText = DOMPurify.sanitize("Devi inserire un numero di telefono");
+            } else if (numberChecker(inputText) && inputText.length === 10) {
+                resultsOutput.innerText = DOMPurify.sanitize(`Il numero di telefono ${inputText} è valido`);
+                inputText = DOMPurify.sanitize("");
             } else {
-                resultsOutput.innerText = `${inputText} isn't a valid IT phone number`;
+                resultsOutput.innerText = DOMPurify.sanitize(`Il numero di telefono ${inputText} non è valido`);
             }
         });
 
         clearFormBtn.addEventListener('click', () => {
-            if(phonenumberInput.value === "") {
-                alert("Non c'è niente da resettare, visto che il programma sembra vuoto");
+            if(phonenumberInput.value === DOMPurify.sanitize("")) {
+                alert(DOMPurify.sanitize("Non c'è niente da resettare, visto che il programma sembra vuoto"));
             } else {
-                phonenumberInput.value = "";
-                resultsOutput.textContent = "";
+                phonenumberInput.value = DOMPurify.sanitize("");
+                resultsOutput.textContent = DOMPurify.sanitize("");
             }
         });
 
         const resultBox = document.querySelector('.result-box');
 
-        resultBox.classList.add("container-fluid");
+        resultBox.classList.add("container-fluid", "px-lg-4", "p-0");
 
-        resultsOutput.classList.add("lead");
+        resultsOutput.classList.add("lead", "text-lg-start", "text-center");
     }, []);
 
     return (

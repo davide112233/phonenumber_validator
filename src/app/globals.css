@@ -20,9 +20,8 @@ body {
     width: 37rem;
 }
 
-input[type="text"]:focus {
+.form-control:focus {
     box-shadow: none;
-    outline: none;
     border: 1px solid var(--accent);
 }
 
@@ -40,11 +39,11 @@ input[type="text"]:focus {
     margin-left: 0.5rem;
 }
 
-.result-box {
-    margin-left: 1.5rem;
-}
-
 @media screen and (orientation: portrait) {
+    input[type="text"] {
+        width: 100%;
+    }
+
     #checknumber-btn, #clearform-btn {
         width: fit-content;
     }
